@@ -1,3 +1,4 @@
+// Example iteration package to demonstrate how use godoc
 package iteration
 
 // Repeat the input string n times.
