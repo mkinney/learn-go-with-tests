@@ -1,8 +1,9 @@
 package iteration
 
-func Repeat(character string, count int) (repeated string) {
-	for i := 0; i < count; i++ {
-		repeated += character
+// Repeat the input string n times.
+func Repeat(input string, n int) (repeated string) {
+	for i := 0; i < n; i++ {
+		repeated += input
 	}
 	return
 }

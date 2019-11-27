@@ -6,12 +6,24 @@ import (
 )
 
 func TestRepeat(t *testing.T) {
-	repeated := Repeat("a", 4)
-	expected := "aaaa"
-
-	if repeated != expected {
-		t.Errorf("expected %q but got %q", expected, repeated)
+	assertCorrectMessage := func(t *testing.T, got, want string) {
+		t.Helper()
+		if got != want {
+			t.Errorf("got %q want %q", got, want)
+		}
 	}
+
+	t.Run("repeat 'a' four times", func(t *testing.T) {
+		got := Repeat("a", 4)
+		want := "aaaa"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("repeat 'ab' three times", func(t *testing.T) {
+		got := Repeat("ab", 3)
+		want := "ababab"
+		assertCorrectMessage(t, got, want)
+	})
+
 }
 
 func BenchmarkRepeat(b *testing.B) {
@@ -21,7 +33,7 @@ func BenchmarkRepeat(b *testing.B) {
 }
 
 func ExampleRepeat() {
-	output := Repeat("a", 3)
+	output := Repeat("ab", 3)
 	fmt.Println(output)
-	// Output: aaa
+	// Output: ababab
 }
