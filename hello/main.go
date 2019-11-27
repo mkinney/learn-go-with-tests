@@ -1,3 +1,4 @@
+// "Hello, World" example demonstrating constants and how to use go testing.
 package main
 
 import "fmt"
